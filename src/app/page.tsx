@@ -22,6 +22,7 @@ import {
   StudioGallery,
 } from "@/components/StudioInteractive";
 import StudioStory from "@/components/StudioStory";
+import WhatsAppLink from "@/components/WhatsAppLink";
 import { GOOGLE_MAPS_STUDIO_URL } from "@/data/portfolio";
 import { STUDIO_IDENTITY } from "@/data/studio-info";
 import { buildFaqJsonLd, buildLocalBusinessJsonLd } from "@/lib/seo";
@@ -180,9 +181,13 @@ export default function Home() {
               kenyamanan, dan cerita rumah Anda.
             </p>
             <div className="hero-actions">
-              <a className="button light" href="#kunjungi">
+              <WhatsAppLink
+                className="button light"
+                ctaLocation="home_hero_cta"
+                message="Halo TOSTEM Studio Alam Sutera, saya ingin konsultasi pintu & jendela aluminium serta merencanakan kunjungan ke showroom. Terima kasih."
+              >
                 Rencanakan kunjungan <ArrowUpRight size={18} />
-              </a>
+              </WhatsAppLink>
               <a className="text-link light-link" href="#produk">
                 Jelajahi produk <ArrowRight size={18} />
               </a>
@@ -369,9 +374,13 @@ export default function Home() {
                 >
                   Petunjuk arah &amp; Ulasan Google <ArrowUpRight size={18} />
                 </a>
-                <a className="text-link" href="#rencana">
+                <WhatsAppLink
+                  className="text-link"
+                  ctaLocation="home_visit_cta"
+                  message="Halo TOSTEM Studio Alam Sutera, saya ingin menanyakan jadwal kunjungan ke showroom Alam Sutera. Terima kasih."
+                >
                   Tanyakan kunjungan <ArrowRight size={18} />
-                </a>
+                </WhatsAppLink>
               </div>
               <MapPreview />
             </div>
@@ -408,9 +417,13 @@ export default function Home() {
               <br />
               untuk rumah Anda.
             </h2>
-            <a className="button dark" href="#rencana">
+            <WhatsAppLink
+              className="button dark"
+              ctaLocation="home_closing_cta"
+              message="Halo TOSTEM Studio Alam Sutera, saya ingin mulai konsultasi kebutuhan pintu & jendela untuk rumah kami. Terima kasih."
+            >
               Mulai percakapan <ArrowUpRight size={18} />
-            </a>
+            </WhatsAppLink>
           </div>
         </section>
       </main>
@@ -463,9 +476,12 @@ export default function Home() {
           <MapPin size={18} />
           Lokasi studio
         </a>
-        <a href="#rencana">
+        <WhatsAppLink
+          ctaLocation="mobile_dock_cta"
+          message="Halo TOSTEM Studio Alam Sutera, saya ingin merencanakan kunjungan dan konsultasi produk TOSTEM. Terima kasih."
+        >
           Rencanakan kunjungan <ArrowUpRight size={16} />
-        </a>
+        </WhatsAppLink>
       </div>
     </>
   );

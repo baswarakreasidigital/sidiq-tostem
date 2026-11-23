@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import {
   ArrowUpRight,
   ChevronLeft,
@@ -33,6 +34,11 @@ export default function PortfolioShowcase() {
 
   useEffect(() => {
     if (lightboxIdx === null) return;
+    const prevHtmlOverflow = document.documentElement.style.overflow;
+    const prevBodyOverflow = document.body.style.overflow;
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setLightboxIdx(null);
@@ -49,7 +55,11 @@ export default function PortfolioShowcase() {
       }
     };
     window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
+    return () => {
+      document.documentElement.style.overflow = prevHtmlOverflow;
+      document.body.style.overflow = prevBodyOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
   }, [lightboxIdx, filteredPhotos.length]);
 
   const baseMessage = `Halo TOSTEM Studio Alam Sutera, saya melihat portfolio ${project.title} dan ingin konsultasi kebutuhan jendela/pintu aluminium untuk proyek kami. Terima kasih.`;
@@ -225,68 +235,72 @@ export default function PortfolioShowcase() {
         </div>
       )}
 
-      {activeLightboxPhoto && lightboxIdx !== null && (
-        <div
-          className="portfolio-lightbox"
-          role="dialog"
-          aria-modal="true"
-          aria-label={activeLightboxPhoto.title}
-          onClick={() => setLightboxIdx(null)}
-        >
+      {activeLightboxPhoto &&
+        lightboxIdx !== null &&
+        typeof document !== "undefined" &&
+        createPortal(
           <div
-            className="portfolio-lightbox-inner"
-            onClick={(e) => e.stopPropagation()}
+            className="portfolio-lightbox"
+            role="dialog"
+            aria-modal="true"
+            aria-label={activeLightboxPhoto.title}
+            onClick={() => setLightboxIdx(null)}
           >
-            <button
-              type="button"
-              className="portfolio-lightbox-close"
-              onClick={() => setLightboxIdx(null)}
-              aria-label="Tutup pratinjau"
+            <div
+              className="portfolio-lightbox-inner"
+              onClick={(e) => e.stopPropagation()}
             >
-              <X size={20} />
-            </button>
-            <div className="portfolio-lightbox-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={activeLightboxPhoto.image}
-                alt={activeLightboxPhoto.alt}
-              />
-            </div>
-            <div className="portfolio-lightbox-bar">
-              <div>
-                <strong>{activeLightboxPhoto.title}</strong>
-                <p>{activeLightboxPhoto.caption}</p>
+              <button
+                type="button"
+                className="portfolio-lightbox-close"
+                onClick={() => setLightboxIdx(null)}
+                aria-label="Tutup pratinjau"
+              >
+                <X size={20} />
+              </button>
+              <div className="portfolio-lightbox-media">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={activeLightboxPhoto.image}
+                  alt={activeLightboxPhoto.alt}
+                />
               </div>
-              <div className="portfolio-lightbox-nav">
-                <button
-                  type="button"
-                  onClick={() =>
-                    setLightboxIdx(
-                      (lightboxIdx - 1 + filteredPhotos.length) %
-                        filteredPhotos.length
-                    )
-                  }
-                  aria-label="Foto sebelumnya"
-                >
-                  <ChevronLeft size={18} />
-                </button>
-                <span>
-                  {lightboxIdx + 1} / {filteredPhotos.length}
-                </span>
-                <button
-                  type="button"
-                  onClick={() =>
-                    setLightboxIdx((lightboxIdx + 1) % filteredPhotos.length)
-                  }
-                  aria-label="Foto berikutnya"
-                >
-                  <ChevronRight size={18} />
-                </button>
+              <div className="portfolio-lightbox-bar">
+                <div>
+                  <strong>{activeLightboxPhoto.title}</strong>
+                  <p>{activeLightboxPhoto.caption}</p>
+                </div>
+                <div className="portfolio-lightbox-nav">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setLightboxIdx(
+                        (lightboxIdx - 1 + filteredPhotos.length) %
+                          filteredPhotos.length
+                      )
+                    }
+                    aria-label="Foto sebelumnya"
+                  >
+                    <ChevronLeft size={18} />
+                  </button>
+                  <span>
+                    {lightboxIdx + 1} / {filteredPhotos.length}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setLightboxIdx((lightboxIdx + 1) % filteredPhotos.length)
+                    }
+                    aria-label="Foto berikutnya"
+                  >
+                    <ChevronRight size={18} />
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body
+        )}
     </div>
   );
 }

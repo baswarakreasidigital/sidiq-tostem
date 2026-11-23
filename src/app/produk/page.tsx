@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import ProductExplorer from "@/components/ProductExplorer";
+import WhatsAppLink from "@/components/WhatsAppLink";
 import { STUDIO_IDENTITY } from "@/data/studio-info";
 import { buildBreadcrumbJsonLd } from "@/lib/seo";
 
@@ -62,9 +63,13 @@ export default function ProdukPage() {
             <Link href="/#pengalaman">Pengalaman</Link>
             <Link href="/#kunjungi">Lokasi</Link>
           </nav>
-          <Link href="/rencanakan-kunjungan" className="header-cta">
+          <WhatsAppLink
+            className="header-cta"
+            ctaLocation="produk_header_cta"
+            message="Halo TOSTEM Studio Alam Sutera, saya sedang melihat katalog produk TOSTEM dan ingin merencanakan kunjungan ke showroom. Terima kasih."
+          >
             Rencanakan kunjungan <ArrowUpRight size={16} />
-          </Link>
+          </WhatsAppLink>
         </div>
       </header>
 
@@ -93,9 +98,13 @@ export default function ProdukPage() {
               <br />
               untuk rumah Anda.
             </h2>
-            <Link className="button dark" href="/rencanakan-kunjungan">
+            <WhatsAppLink
+              className="button dark"
+              ctaLocation="produk_closing_cta"
+              message="Halo TOSTEM Studio Alam Sutera, saya ingin konsultasi pilihan seri & warna pintu/jendela TOSTEM untuk rumah kami. Terima kasih."
+            >
               Mulai percakapan <ArrowUpRight size={18} />
-            </Link>
+            </WhatsAppLink>
           </div>
         </section>
       </main>

@@ -23,6 +23,7 @@ import {
   pushDataLayerEvent,
   useRefCode,
 } from "@/lib/tracking";
+import WhatsAppLink from "@/components/WhatsAppLink";
 
 const GALLERY_ITEMS = [
   {
@@ -89,50 +90,13 @@ export function Navigation() {
           <a href="#pengalaman">Pengalaman</a>
           <a href="#kunjungi">Lokasi</a>
         </nav>
-        <a
-          href="#rencana"
+        <WhatsAppLink
           className="header-cta"
-          onClick={(e) => {
-            const scrollToTarget = () => {
-              const target = document.getElementById("rencana");
-              if (!target) return;
-              const headerOffset = 100;
-              const y =
-                target.getBoundingClientRect().top +
-                window.scrollY -
-                headerOffset;
-              window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
-            };
-
-            if (document.getElementById("rencana")) {
-              e.preventDefault();
-              if (window.location.hash !== "#rencana") {
-                window.history.pushState(null, "", "#rencana");
-              }
-              scrollToTarget();
-              window.setTimeout(() => {
-                const target = document.getElementById("rencana");
-                if (
-                  target &&
-                  Math.abs(target.getBoundingClientRect().top - 100) > 30
-                ) {
-                  scrollToTarget();
-                }
-              }, 550);
-              window.setTimeout(() => {
-                const target = document.getElementById("rencana");
-                if (
-                  target &&
-                  Math.abs(target.getBoundingClientRect().top - 100) > 30
-                ) {
-                  scrollToTarget();
-                }
-              }, 950);
-            }
-          }}
+          ctaLocation="header_cta"
+          message="Halo TOSTEM Studio Alam Sutera, saya ingin merencanakan kunjungan ke showroom dan konsultasi produk TOSTEM. Terima kasih."
         >
           Rencanakan kunjungan <ArrowUpRight size={16} />
-        </a>
+        </WhatsAppLink>
         <button
           ref={toggleRef}
           className="menu-toggle"
@@ -165,13 +129,14 @@ export function Navigation() {
               <ArrowUpRight size={18} />
             </a>
           ))}
-          <a
-            href="#rencana"
+          <WhatsAppLink
             className="mobile-menu-cta"
-            onClick={() => setMenuOpen(false)}
+            ctaLocation="mobile_menu_cta"
+            message="Halo TOSTEM Studio Alam Sutera, saya ingin merencanakan kunjungan ke showroom dan konsultasi produk TOSTEM. Terima kasih."
+            onAfterClick={() => setMenuOpen(false)}
           >
             Rencanakan kunjungan <ArrowUpRight size={18} />
-          </a>
+          </WhatsAppLink>
         </nav>
       )}
     </header>
@@ -306,7 +271,7 @@ export function Consultation({
 }: {
   defaultInterest?: string;
 } = {}) {
-  const [mode, setMode] = useState<"form" | "whatsapp">("form");
+  const [mode, setMode] = useState<"form" | "whatsapp">("whatsapp");
   const [leadType, setLeadType] = useState<"estimasi" | "katalog">("estimasi");
   const [selectedProduct, setSelectedProduct] = useState("");
   const [projectNeed, setProjectNeed] = useState<string>("Membangun rumah");
@@ -419,20 +384,20 @@ export function Consultation({
           <button
             type="button"
             role="tab"
-            aria-selected={mode === "form"}
-            onClick={() => setMode("form")}
-          >
-            <FileText size={15} />
-            Minta Estimasi / Katalog
-          </button>
-          <button
-            type="button"
-            role="tab"
             aria-selected={mode === "whatsapp"}
             onClick={() => setMode("whatsapp")}
           >
             <MessageCircle size={15} />
             Langsung via WhatsApp
+          </button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected={mode === "form"}
+            onClick={() => setMode("form")}
+          >
+            <FileText size={15} />
+            Minta Estimasi / Katalog
           </button>
         </div>
 

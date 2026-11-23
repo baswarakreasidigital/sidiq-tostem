@@ -2589,32 +2589,55 @@ h1,h2,h3,h4,h5,h6,.hero h1,.address h3,.faqs summary,.series-list strong {
 }
 
 .detail-categories button {
-  border-bottom:2px solid #0000;
-  flex:1 1 auto;
-  min-height:48px;
-  padding-inline:12px;
-  white-space:nowrap;
-  font-size:11px
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  color: var(--muted);
+  cursor: pointer;
+  flex: 1 1 auto;
+  min-height: 48px;
+  padding: 0 4px;
+  white-space: nowrap;
+  font-size: 13px;
+  transition: color 0.18s ease, border-color 0.18s ease;
 }
 
-.detail-categories button[aria-pressed=true] {
-  border-color:var(--ink);
-  font-weight:700
+.detail-categories button:hover {
+  color: var(--ink);
+}
+
+.detail-categories button[aria-pressed="true"] {
+  border-bottom-color: var(--ink);
+  color: var(--ink);
+  font-weight: 600;
 }
 
 .detail-series {
-  flex-wrap:wrap
+  flex-wrap: wrap;
 }
 
 .detail-series button {
-  min-height:44px;
-  padding:12px 18px;
-  font-size:12px
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  color: var(--ink);
+  cursor: pointer;
+  min-height: 40px;
+  padding: 10px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
 }
 
-.detail-series button[aria-pressed=true] {
-  background:var(--ink);
-  color:#fff
+.detail-series button:hover {
+  border-color: var(--ink);
+}
+
+.detail-series button[aria-pressed="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
 }
 
 .detail-grid {
@@ -4476,23 +4499,26 @@ h1,h2,h3,h4,h5,h6,.hero h1,.address h3,.faqs summary,.series-list strong {
 .portfolio-lightbox {
   position: fixed;
   inset: 0;
-  z-index: 80;
-  background: rgba(14, 16, 14, 0.88);
+  width: 100vw;
+  height: 100dvh;
+  z-index: 200;
+  background: rgba(14, 16, 14, 0.9);
   display: grid;
   place-items: center;
   padding: 20px;
+  overflow: hidden;
 }
 
 .portfolio-lightbox-inner {
   position: relative;
-  width: min(1040px, 100%);
-  max-height: 92vh;
+  width: min(1040px, calc(100vw - 40px));
+  max-height: calc(100dvh - 40px);
   background: #181a18;
   color: #fff;
-  border-radius: 8px;
+  border-radius: 2px;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
 }
 
 .portfolio-lightbox-close {
@@ -4515,13 +4541,14 @@ h1,h2,h3,h4,h5,h6,.hero h1,.address h3,.faqs summary,.series-list strong {
   display: grid;
   place-items: center;
   background: #101210;
-  max-height: 74vh;
+  min-height: 0;
   overflow: hidden;
+  padding: 12px;
 }
 
 .portfolio-lightbox-media img {
   max-width: 100%;
-  max-height: 74vh;
+  max-height: calc(100dvh - 150px);
   width: auto;
   height: auto;
   object-fit: contain;

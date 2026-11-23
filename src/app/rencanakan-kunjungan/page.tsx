@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Consultation } from "@/components/StudioInteractive";
+import WhatsAppLink from "@/components/WhatsAppLink";
 import { STUDIO_IDENTITY } from "@/data/studio-info";
 import { buildBreadcrumbJsonLd } from "@/lib/seo";
 
@@ -83,9 +84,13 @@ export default function RencanakanKunjunganPage() {
             <Link href="/#pengalaman">Pengalaman</Link>
             <Link href="/#kunjungi">Lokasi</Link>
           </nav>
-          <a href="#rencana" className="header-cta">
+          <WhatsAppLink
+            className="header-cta"
+            ctaLocation="kunjungan_header_cta"
+            message="Halo TOSTEM Studio Alam Sutera, saya ingin merencanakan kunjungan ke showroom dan konsultasi produk TOSTEM. Terima kasih."
+          >
             Rencanakan kunjungan <ArrowUpRight size={16} />
-          </a>
+          </WhatsAppLink>
         </div>
       </header>
 

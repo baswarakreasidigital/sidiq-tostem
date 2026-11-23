@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, MapPin } from "lucide-react";
 import { Consultation } from "@/components/StudioInteractive";
+import WhatsAppLink from "@/components/WhatsAppLink";
 import {
   DEDICATED_PRODUCT_PAGES,
   GOOGLE_MAPS_STUDIO_URL,
@@ -86,9 +87,14 @@ export default function ProductLandingShell({
             <Link href="/#pengalaman">Pengalaman</Link>
             <Link href="/#kunjungi">Lokasi</Link>
           </nav>
-          <a href="#rencana" className="header-cta">
+          <WhatsAppLink
+            className="header-cta"
+            ctaLocation="product_header_cta"
+            productSeries={defaultInterest}
+            message={`Halo TOSTEM Studio Alam Sutera, saya sedang melihat ${title} dan ingin merencanakan kunjungan serta konsultasi produk. Terima kasih.`}
+          >
             Rencanakan kunjungan <ArrowUpRight size={16} />
-          </a>
+          </WhatsAppLink>
         </div>
       </header>
 
@@ -115,9 +121,14 @@ export default function ProductLandingShell({
               <h1>{title}</h1>
               <p className="lp-subtitle">{subtitle}</p>
               <div className="lp-hero-actions">
-                <a className="button dark" href="#rencana">
+                <WhatsAppLink
+                  className="button dark"
+                  ctaLocation="product_hero_cta"
+                  productSeries={defaultInterest}
+                  message={`Halo TOSTEM Studio Alam Sutera, saya ingin meminta estimasi harga & katalog untuk ${title}. Terima kasih.`}
+                >
                   Minta Estimasi &amp; Katalog <ArrowUpRight size={18} />
-                </a>
+                </WhatsAppLink>
                 <a
                   className="text-link"
                   href={GOOGLE_MAPS_STUDIO_URL}
