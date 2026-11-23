@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight, MessageCircle } from "lucide-react";
 import ProductLandingShell from "@/components/ProductLandingShell";
+import WhatsAppLink from "@/components/WhatsAppLink";
 import { PRODUCT_SERIES } from "@/data/products";
 
 const WINDOW_SERIES = PRODUCT_SERIES.filter((s) =>
@@ -79,6 +82,22 @@ export default function JendelaKedapSuaraPage() {
                   </div>
                 </dl>
                 <p className="lp-note">{series.note}</p>
+                <div className="lp-compare-actions">
+                  <WhatsAppLink
+                    className="button dark"
+                    ctaLocation="jendela_kedap_suara_card"
+                    productSeries={series.name}
+                    message={`Halo TOSTEM Studio Alam Sutera, saya ingin konsultasi jendela kedap suara seri ${series.name}. Mohon informasi spesifikasi dan estimasi harga. Terima kasih.`}
+                  >
+                    <MessageCircle size={16} strokeWidth={1.6} />
+                    <span>Konsultasikan {series.name}</span>
+                    <ArrowUpRight size={16} />
+                  </WhatsAppLink>
+                  <Link className="text-link" href={series.landingHref}>
+                    <span>Lihat detail {series.name}</span>
+                    <ArrowRight size={15} />
+                  </Link>
+                </div>
               </div>
             </article>
           ))}

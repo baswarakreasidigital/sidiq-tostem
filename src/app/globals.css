@@ -4598,6 +4598,66 @@ h1,h2,h3,h4,h5,h6,.hero h1,.address h3,.faqs summary,.series-list strong {
   color: rgba(255, 255, 255, 0.8);
 }
 
+/* === Floating WhatsApp Button === */
+.floating-wa {
+  position: fixed;
+  right: 16px;
+  bottom: calc(74px + env(safe-area-inset-bottom));
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 52px;
+  height: 52px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: #25d366;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  box-shadow: 0 10px 26px rgba(18, 36, 24, 0.22);
+  transition: transform 0.2s var(--ease), background 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.floating-wa span {
+  display: none;
+}
+
+.floating-wa:hover {
+  background: #1ebe5d;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(18, 36, 24, 0.28);
+}
+
+@media (min-width: 720px) {
+  .floating-wa {
+    right: 24px;
+    bottom: 24px;
+    height: 50px;
+    padding: 0 18px 0 16px;
+  }
+
+  .floating-wa span {
+    display: inline;
+  }
+}
+
+.lp-compare-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.lp-compare-actions .button {
+  width: 100%;
+  justify-content: center;
+}
+
 /* Full-screen 404 Not Found (Light Architectural Split) */
 .not-found-screen {
   min-height: 100svh;

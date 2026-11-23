@@ -7,6 +7,9 @@ const useIsomorphicLayoutEffect =
   typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 function forceScrollTopInstant() {
+  if (window.__lenis) {
+    window.__lenis.scrollTo(0, { immediate: true, force: true });
+  }
   const html = document.documentElement;
   html.style.scrollBehavior = "auto";
   window.scrollTo({ top: 0, left: 0, behavior: "instant" });
@@ -14,12 +17,18 @@ function forceScrollTopInstant() {
   document.body.scrollTop = 0;
 
   requestAnimationFrame(() => {
+    if (window.__lenis) {
+      window.__lenis.scrollTo(0, { immediate: true, force: true });
+    }
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
     html.scrollTop = 0;
     document.body.scrollTop = 0;
   });
 
   window.setTimeout(() => {
+    if (window.__lenis) {
+      window.__lenis.scrollTo(0, { immediate: true, force: true });
+    }
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
     html.scrollTop = 0;
     document.body.scrollTop = 0;

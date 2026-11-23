@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, MapPin } from "lucide-react";
 import { Consultation } from "@/components/StudioInteractive";
+import PhoneLink from "@/components/PhoneLink";
 import WhatsAppLink from "@/components/WhatsAppLink";
 import {
   DEDICATED_PRODUCT_PAGES,
@@ -183,7 +184,21 @@ export default function ProductLandingShell({
           <span>{STUDIO_IDENTITY.dealerBadge}</span>
           <span>{STUDIO_IDENTITY.warranty}</span>
           <span>Jam buka: {STUDIO_IDENTITY.hours}</span>
-          <span>Area layanan: {STUDIO_IDENTITY.coverage}</span>
+          <span>
+            Telepon:{" "}
+            <PhoneLink ctaLocation="footer_phone">
+              {STUDIO_IDENTITY.phoneDisplay}
+            </PhoneLink>
+          </span>
+          <span>
+            WhatsApp:{" "}
+            <WhatsAppLink
+              ctaLocation="footer_whatsapp"
+              productSeries={defaultInterest}
+            >
+              {STUDIO_IDENTITY.phoneDisplay}
+            </WhatsAppLink>
+          </span>
         </div>
         <div className="container footer-bottom">
           <span>© TOSTEM Studio Alam Sutera · PT Litech Alglassindo</span>

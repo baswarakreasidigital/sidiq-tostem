@@ -22,6 +22,7 @@ import {
   StudioGallery,
 } from "@/components/StudioInteractive";
 import StudioStory from "@/components/StudioStory";
+import PhoneLink from "@/components/PhoneLink";
 import WhatsAppLink from "@/components/WhatsAppLink";
 import { GOOGLE_MAPS_STUDIO_URL } from "@/data/portfolio";
 import { STUDIO_IDENTITY } from "@/data/studio-info";
@@ -364,6 +365,18 @@ export default function Home() {
                 <strong>{STUDIO_IDENTITY.dealerBadge}</strong>
                 <br />
                 {STUDIO_IDENTITY.hoursDetail} · {STUDIO_IDENTITY.coverageDetail}.
+                <br />
+                Telepon:{" "}
+                <PhoneLink ctaLocation="home_visit_phone">
+                  <strong>{STUDIO_IDENTITY.phoneDisplay}</strong>
+                </PhoneLink>{" "}
+                · WhatsApp:{" "}
+                <WhatsAppLink
+                  ctaLocation="home_visit_whatsapp"
+                  message="Halo TOSTEM Studio Alam Sutera, saya ingin konsultasi dan menanyakan jadwal kunjungan ke showroom. Terima kasih."
+                >
+                  <strong>{STUDIO_IDENTITY.phoneDisplay}</strong>
+                </WhatsAppLink>
               </p>
               <div className="visit-actions">
                 <a
@@ -457,7 +470,18 @@ export default function Home() {
           <span>{STUDIO_IDENTITY.dealerBadge}</span>
           <span>{STUDIO_IDENTITY.warranty}</span>
           <span>Jam buka: {STUDIO_IDENTITY.hours}</span>
-          <span>Area layanan: Jabodetabek</span>
+          <span>
+            Telepon:{" "}
+            <PhoneLink ctaLocation="footer_phone">
+              {STUDIO_IDENTITY.phoneDisplay}
+            </PhoneLink>
+          </span>
+          <span>
+            WhatsApp:{" "}
+            <WhatsAppLink ctaLocation="footer_whatsapp">
+              {STUDIO_IDENTITY.phoneDisplay}
+            </WhatsAppLink>
+          </span>
         </div>
         <div className="container footer-bottom">
           <span>© TOSTEM Studio Alam Sutera · PT Litech Alglassindo</span>

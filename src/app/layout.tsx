@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import AttributionTracker from "@/components/AttributionTracker";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import ScrollToTop from "@/components/ScrollToTop";
+import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -63,9 +65,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
       </head>
       <body>
+        <SmoothScroll />
         <ScrollToTop />
         <AttributionTracker />
         {children}
+        <FloatingWhatsApp />
       </body>
       <Script
         src="https://www.googletagmanager.com/gtm.js?id=GTM-PXJ373Z3"

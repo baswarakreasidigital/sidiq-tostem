@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import ProductExplorer from "@/components/ProductExplorer";
+import PhoneLink from "@/components/PhoneLink";
 import WhatsAppLink from "@/components/WhatsAppLink";
 import { STUDIO_IDENTITY } from "@/data/studio-info";
 import { buildBreadcrumbJsonLd } from "@/lib/seo";
@@ -138,7 +139,18 @@ export default function ProdukPage() {
           <span>{STUDIO_IDENTITY.dealerBadge}</span>
           <span>{STUDIO_IDENTITY.warranty}</span>
           <span>Jam buka: {STUDIO_IDENTITY.hours}</span>
-          <span>Area layanan: Jabodetabek</span>
+          <span>
+            Telepon:{" "}
+            <PhoneLink ctaLocation="footer_phone">
+              {STUDIO_IDENTITY.phoneDisplay}
+            </PhoneLink>
+          </span>
+          <span>
+            WhatsApp:{" "}
+            <WhatsAppLink ctaLocation="footer_whatsapp">
+              {STUDIO_IDENTITY.phoneDisplay}
+            </WhatsAppLink>
+          </span>
         </div>
         <div className="container footer-bottom">
           <span>© TOSTEM Studio Alam Sutera · PT Litech Alglassindo</span>
