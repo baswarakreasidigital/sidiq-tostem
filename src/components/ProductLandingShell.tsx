@@ -50,14 +50,15 @@ export default function ProductLandingShell({
               height={34}
             />
           </Link>
-          <nav className="desktop-nav" aria-label="Navigasi halaman produk">
-            <Link href="/produk/grants">GRANTS</Link>
-            <Link href="/jendela-kedap-suara">Jendela Kedap Suara</Link>
-            <Link href="/pintu-utama-giesta">Pintu GIESTA</Link>
-            <Link href="/">Beranda</Link>
+          <nav className="desktop-nav" aria-label="Navigasi utama">
+            <Link href="/#studio">Studio</Link>
+            <Link href="/#produk">Produk</Link>
+            <Link href="/#portfolio">Portfolio</Link>
+            <Link href="/#pengalaman">Pengalaman</Link>
+            <Link href="/#kunjungi">Lokasi</Link>
           </nav>
           <a href="#rencana" className="header-cta">
-            Minta estimasi <ArrowUpRight size={16} />
+            Rencanakan kunjungan <ArrowUpRight size={16} />
           </a>
         </div>
       </header>
@@ -78,8 +79,8 @@ export default function ProductLandingShell({
         <section className="lp-hero">
           <div className="container lp-hero-grid">
             <div className="lp-hero-copy">
-              <Link href="/" className="lp-breadcrumb">
-                <ArrowLeft size={14} /> Kembali ke TOSTEM Studio Alam Sutera
+              <Link href="/produk" className="lp-breadcrumb">
+                <ArrowLeft size={14} /> Kembali ke semua produk TOSTEM
               </Link>
               <p className="eyebrow">{eyebrow}</p>
               <h1>{title}</h1>
@@ -145,11 +146,9 @@ export default function ProductLandingShell({
           <span>Area layanan: {STUDIO_IDENTITY.coverage}</span>
         </div>
         <div className="container footer-bottom">
-          <Link href="/">Beranda Studio</Link>
-          <Link href="/produk/grants">GRANTS Series</Link>
-          <Link href="/jendela-kedap-suara">Jendela Kedap Suara</Link>
-          <Link href="/pintu-utama-giesta">Pintu GIESTA</Link>
+          <span>© TOSTEM Studio Alam Sutera · PT Litech Alglassindo</span>
           <Link href={STUDIO_IDENTITY.privacyPath}>Kebijakan Privasi</Link>
+          <a href="#top">Kembali ke atas ↑</a>
         </div>
       </footer>
     </>

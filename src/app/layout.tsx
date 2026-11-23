@@ -56,12 +56,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="id" data-scroll-behavior="smooth">
+    <html lang="id" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "if('scrollRestoration' in history){history.scrollRestoration='manual';}document.documentElement.style.scrollBehavior='auto';window.scrollTo(0,0);",
+              "if('scrollRestoration' in history){history.scrollRestoration='manual';}window.scrollTo({top:0,left:0,behavior:'instant'});",
           }}
         />
       </head>

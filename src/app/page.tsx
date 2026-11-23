@@ -395,14 +395,14 @@ export default function Home() {
 
       <footer>
         <div className="container footer-top">
-          <a href="#utama" aria-label="TOSTEM, kembali ke awal">
+          <Link href="/" aria-label="TOSTEM, kembali ke awal">
             <Image
               src="/images/tostem-logo-b.svg"
               alt="TOSTEM"
               width={194}
               height={34}
             />
-          </a>
+          </Link>
           <p>
             Studio Alam Sutera
             <br />
@@ -425,10 +425,7 @@ export default function Home() {
           <span>Area layanan: Jabodetabek</span>
         </div>
         <div className="container footer-bottom">
-          <a href="#produk">Informasi produk</a>
-          <Link href="/produk/grants">GRANTS Series</Link>
-          <Link href="/jendela-kedap-suara">Jendela Kedap Suara</Link>
-          <Link href="/pintu-utama-giesta">Pintu GIESTA</Link>
+          <span>© TOSTEM Studio Alam Sutera · PT Litech Alglassindo</span>
           <Link href={STUDIO_IDENTITY.privacyPath}>Kebijakan Privasi</Link>
           <a href="#utama">Kembali ke atas ↑</a>
         </div>

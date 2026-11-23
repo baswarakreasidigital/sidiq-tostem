@@ -27,6 +27,21 @@ function forceScrollTopInstant() {
   }, 60);
 }
 
+function scrollToHashTarget(hash: string) {
+  const id = hash.replace(/^#/, "");
+  if (!id) return;
+
+  const attempt = () => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  requestAnimationFrame(attempt);
+  window.setTimeout(attempt, 180);
+}
+
 export default function ScrollToTop() {
   const pathname = usePathname();
 
@@ -40,13 +55,17 @@ export default function ScrollToTop() {
       navEntries.length > 0 &&
       (navEntries[0] as PerformanceNavigationTiming).type === "reload";
 
-    if (isReload || !window.location.hash) {
+    if (window.location.hash && !isReload) {
+      scrollToHashTarget(window.location.hash);
+    } else if (isReload || !window.location.hash) {
       forceScrollTopInstant();
     }
   }, []);
 
   useIsomorphicLayoutEffect(() => {
-    if (!window.location.hash) {
+    if (window.location.hash) {
+      scrollToHashTarget(window.location.hash);
+    } else {
       forceScrollTopInstant();
     }
   }, [pathname]);

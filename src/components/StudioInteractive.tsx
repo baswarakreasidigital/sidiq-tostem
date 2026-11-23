@@ -66,11 +66,14 @@ export function Navigation() {
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <a
+        <Link
           className="brand"
-          href="#utama"
+          href="/"
           aria-label="TOSTEM Studio Alam Sutera, beranda"
-          onClick={() => setMenuOpen(false)}
+          onClick={() => {
+            setMenuOpen(false);
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
         >
           <Image
             src="/images/tostem-logo-b.svg"
@@ -78,7 +81,7 @@ export function Navigation() {
             width={194}
             height={34}
           />
-        </a>
+        </Link>
         <nav className="desktop-nav" aria-label="Navigasi utama">
           <a href="#studio">Studio</a>
           <a href="#produk">Produk</a>
@@ -86,7 +89,48 @@ export function Navigation() {
           <a href="#pengalaman">Pengalaman</a>
           <a href="#kunjungi">Lokasi</a>
         </nav>
-        <a href="#rencana" className="header-cta">
+        <a
+          href="#rencana"
+          className="header-cta"
+          onClick={(e) => {
+            const scrollToTarget = () => {
+              const target = document.getElementById("rencana");
+              if (!target) return;
+              const headerOffset = 100;
+              const y =
+                target.getBoundingClientRect().top +
+                window.scrollY -
+                headerOffset;
+              window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+            };
+
+            if (document.getElementById("rencana")) {
+              e.preventDefault();
+              if (window.location.hash !== "#rencana") {
+                window.history.pushState(null, "", "#rencana");
+              }
+              scrollToTarget();
+              window.setTimeout(() => {
+                const target = document.getElementById("rencana");
+                if (
+                  target &&
+                  Math.abs(target.getBoundingClientRect().top - 100) > 30
+                ) {
+                  scrollToTarget();
+                }
+              }, 550);
+              window.setTimeout(() => {
+                const target = document.getElementById("rencana");
+                if (
+                  target &&
+                  Math.abs(target.getBoundingClientRect().top - 100) > 30
+                ) {
+                  scrollToTarget();
+                }
+              }, 950);
+            }
+          }}
+        >
           Rencanakan kunjungan <ArrowUpRight size={16} />
         </a>
         <button
@@ -477,7 +521,7 @@ export function Consultation({
               <div className="lead-grid">
                 <div className="lead-field">
                   <label className="select-label" htmlFor="lead-name">
-                    Nama lengkap *
+                    Nama lengkap
                   </label>
                   <input
                     id="lead-name"
@@ -492,7 +536,7 @@ export function Consultation({
                 </div>
                 <div className="lead-field">
                   <label className="select-label" htmlFor="lead-phone">
-                    Nomor WhatsApp *
+                    Nomor WhatsApp
                   </label>
                   <input
                     id="lead-phone"
@@ -510,7 +554,7 @@ export function Consultation({
               <div className="lead-grid">
                 <div className="lead-field">
                   <label className="select-label" htmlFor="lead-city">
-                    Kota / area proyek *
+                    Kota / area proyek
                   </label>
                   <select
                     id="lead-city"

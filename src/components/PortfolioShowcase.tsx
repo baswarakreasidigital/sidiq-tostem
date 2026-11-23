@@ -10,26 +10,26 @@ import {
   MessageCircle,
   X,
 } from "lucide-react";
-import {
-  KELAPA_GADING_PORTFOLIO,
-  type PortfolioPhotoCategory,
-} from "@/data/portfolio";
+import { PORTFOLIO_PROJECTS } from "@/data/portfolio";
 import { WHATSAPP_NUMBER } from "@/data/products";
 import { pushDataLayerEvent, useRefCode } from "@/lib/tracking";
 
-type FilterId = "all" | PortfolioPhotoCategory;
-
 export default function PortfolioShowcase() {
-  const [activeTab, setActiveTab] = useState<FilterId>("all");
+  const [activeProjectId, setActiveProjectId] = useState<string>(
+    PORTFOLIO_PROJECTS[0].id
+  );
+  const [activeTab, setActiveTab] = useState<string>("all");
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
   const refCode = useRefCode();
 
+  const project =
+    PORTFOLIO_PROJECTS.find((p) => p.id === activeProjectId) ??
+    PORTFOLIO_PROJECTS[0];
+
   const filteredPhotos =
     activeTab === "all"
-      ? KELAPA_GADING_PORTFOLIO.photos
-      : KELAPA_GADING_PORTFOLIO.photos.filter(
-          (photo) => photo.category === activeTab
-        );
+      ? project.photos
+      : project.photos.filter((photo) => photo.category === activeTab);
 
   useEffect(() => {
     if (lightboxIdx === null) return;
@@ -52,8 +52,7 @@ export default function PortfolioShowcase() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [lightboxIdx, filteredPhotos.length]);
 
-  const baseMessage =
-    "Halo TOSTEM Studio Alam Sutera, saya melihat portfolio Kelapa Gading House (Meinrad Project) dan ingin konsultasi kebutuhan jendela/pintu aluminium untuk proyek kami. Terima kasih.";
+  const baseMessage = `Halo TOSTEM Studio Alam Sutera, saya melihat portfolio ${project.title} dan ingin konsultasi kebutuhan jendela/pintu aluminium untuk proyek kami. Terima kasih.`;
   const whatsappMessage = refCode
     ? `${baseMessage} [Ref: ${refCode}]`
     : baseMessage;
@@ -64,18 +63,72 @@ export default function PortfolioShowcase() {
 
   return (
     <div className="portfolio-showcase">
-      <div className="section-head" data-reveal="true">
+      <div className="section-head">
         <div>
-          <p className="eyebrow">{KELAPA_GADING_PORTFOLIO.eyebrow}</p>
-          <h2>{KELAPA_GADING_PORTFOLIO.title}</h2>
+          <p className="eyebrow">PORTFOLIO PROYEK NYATA</p>
+          <h2>
+            Terpasang nyata di
+            <br />
+            <span className="muted">hunian klien kami.</span>
+          </h2>
         </div>
-        <p className="section-description">
-          {KELAPA_GADING_PORTFOLIO.subtitle}
-        </p>
+        <div
+          className="portfolio-project-switcher"
+          role="tablist"
+          aria-label="Pilih proyek portfolio TOSTEM"
+        >
+          {PORTFOLIO_PROJECTS.map((item, idx) => (
+            <button
+              key={item.id}
+              type="button"
+              role="tab"
+              aria-selected={project.id === item.id}
+              onClick={() => {
+                setActiveProjectId(item.id);
+                setActiveTab("all");
+                setLightboxIdx(null);
+              }}
+            >
+              <span className="portfolio-project-index">0{idx + 1}</span>
+              <span className="portfolio-project-copy">
+                <strong>{item.tabTitle}</strong>
+                <small>{item.tabMeta}</small>
+              </span>
+            </button>
+          ))}
+        </div>
       </div>
 
-      <div className="portfolio-specs" data-reveal="true">
-        {KELAPA_GADING_PORTFOLIO.specs.map((spec) => (
+      <div className="portfolio-project-header">
+        <div>
+          <p className="eyebrow">{project.eyebrow}</p>
+          <h3>{project.title}</h3>
+          <p className="portfolio-project-desc">
+            {project.subtitle}
+            {project.note ? ` (${project.note})` : ""}
+          </p>
+        </div>
+        <a
+          className="button dark"
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() =>
+            pushDataLayerEvent("whatsapp_click", {
+              cta_location: `portfolio_${project.id}`,
+              product_series: `Portfolio ${project.title}`,
+              conversion_tier: "secondary",
+            })
+          }
+        >
+          <MessageCircle size={17} strokeWidth={1.5} />
+          <span>Konsultasi Proyek Serupa</span>
+          <ArrowUpRight size={17} />
+        </a>
+      </div>
+
+      <div className="portfolio-specs">
+        {project.specs.map((spec) => (
           <div key={spec.label} className="portfolio-spec-item">
             <span>{spec.label}</span>
             <strong>{spec.value}</strong>
@@ -86,16 +139,16 @@ export default function PortfolioShowcase() {
       <div
         className="portfolio-tabs"
         role="tablist"
-        aria-label="Filter foto portfolio Kelapa Gading House"
+        aria-label={`Filter foto portfolio ${project.title}`}
       >
-        {KELAPA_GADING_PORTFOLIO.tabs.map((tab) => (
+        {project.tabs.map((tab) => (
           <button
             key={tab.id}
             type="button"
             role="tab"
             aria-selected={activeTab === tab.id}
             onClick={() => {
-              setActiveTab(tab.id as FilterId);
+              setActiveTab(tab.id);
               setLightboxIdx(null);
             }}
           >
@@ -124,67 +177,53 @@ export default function PortfolioShowcase() {
                 decoding="async"
               />
               <span className="portfolio-zoom-badge" aria-hidden="true">
-                <Maximize2 size={15} />
+                <Maximize2 size={14} />
               </span>
             </button>
             <div className="portfolio-photo-meta">
-              <h3>{photo.title}</h3>
+              <h4>{photo.title}</h4>
               <p>{photo.caption}</p>
             </div>
           </article>
         ))}
       </div>
 
-      <div className="portfolio-videos-block">
-        <div className="portfolio-videos-head">
-          <div>
-            <p className="eyebrow">
-              <Film size={13} style={{ verticalAlign: "-2px", marginRight: 6 }} />
-              VIDEO TOUR PROYEK
-            </p>
-            <h3>Video Dokumentasi Kelapa Gading House (2 Draft)</h3>
+      {project.videos.length > 0 && (
+        <div className="portfolio-videos-block">
+          <div className="portfolio-videos-head">
+            <div>
+              <p className="eyebrow">
+                <Film
+                  size={13}
+                  style={{ verticalAlign: "-2px", marginRight: 6 }}
+                />
+                VIDEO TOUR PROYEK
+              </p>
+              <h3>Video Dokumentasi {project.title}</h3>
+            </div>
           </div>
-          <div className="portfolio-cta-group">
-            <a
-              className="button dark"
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() =>
-                pushDataLayerEvent("whatsapp_click", {
-                  cta_location: "portfolio_kelapa_gading",
-                  product_series: "Portfolio Kelapa Gading House",
-                  conversion_tier: "secondary",
-                })
-              }
-            >
-              <MessageCircle size={17} strokeWidth={1.5} />
-              <span>Konsultasi Proyek Serupa</span>
-              <ArrowUpRight size={17} />
-            </a>
-          </div>
-        </div>
 
-        <div className="portfolio-video-grid">
-          {KELAPA_GADING_PORTFOLIO.videos.map((video) => (
-            <figure key={video.id} className="portfolio-video-card">
-              <video
-                controls
-                preload="metadata"
-                playsInline
-                poster={video.poster}
-              >
-                <source src={video.src} type="video/mp4" />
-                Browser Anda tidak mendukung pemutar video HTML5.
-              </video>
-              <figcaption>
-                <strong>{video.title}</strong>
-                <span>{video.subtitle}</span>
-              </figcaption>
-            </figure>
-          ))}
+          <div className="portfolio-video-grid">
+            {project.videos.map((video) => (
+              <figure key={video.id} className="portfolio-video-card">
+                <video
+                  controls
+                  preload="metadata"
+                  playsInline
+                  poster={video.poster}
+                >
+                  <source src={video.src} type="video/mp4" />
+                  Browser Anda tidak mendukung pemutar video HTML5.
+                </video>
+                <figcaption>
+                  <strong>{video.title}</strong>
+                  <span>{video.subtitle}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       {activeLightboxPhoto && lightboxIdx !== null && (
         <div

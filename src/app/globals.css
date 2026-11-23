@@ -4137,18 +4137,114 @@ h1,h2,h3,h4,h5,h6,.hero h1,.address h3,.faqs summary,.series-list strong {
   }
 }
 
-/* === Portfolio Showcase (Kelapa Gading House) === */
+/* === Portfolio Showcase === */
 .portfolio-section {
   background: var(--paper);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
 
+.portfolio-project-switcher {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  width: 100%;
+  max-width: 560px;
+}
+
+@media (min-width: 640px) {
+  .portfolio-project-switcher {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.portfolio-project-switcher button {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  text-align: left;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  cursor: pointer;
+  color: var(--ink);
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.portfolio-project-switcher button:hover {
+  border-color: var(--ink);
+}
+
+.portfolio-project-switcher button[aria-selected="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+
+.portfolio-project-index {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  opacity: 0.55;
+  padding-top: 2px;
+}
+
+.portfolio-project-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.portfolio-project-copy strong {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.portfolio-project-copy small {
+  font-size: 11px;
+  opacity: 0.72;
+  line-height: 1.4;
+}
+
+.portfolio-project-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  margin-top: 34px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.portfolio-project-header .eyebrow {
+  margin-bottom: 8px;
+}
+
+.portfolio-project-header h3 {
+  margin: 0;
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.portfolio-project-desc {
+  margin: 10px 0 0;
+  max-width: 66ch;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
 .portfolio-specs {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-  margin-top: 28px;
+  gap: 16px 28px;
+  margin-top: 26px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 @media (min-width: 820px) {
@@ -4158,25 +4254,25 @@ h1,h2,h3,h4,h5,h6,.hero h1,.address h3,.faqs summary,.series-list strong {
 }
 
 .portfolio-spec-item {
-  padding: 16px 18px;
-  background: var(--warm);
-  border: 1px solid var(--line);
-  border-radius: 6px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
 }
 
 .portfolio-spec-item span {
   display: block;
-  font-size: 11px;
+  font-size: 10px;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   color: var(--muted);
-  margin-bottom: 6px;
+  margin-bottom: 5px;
 }
 
 .portfolio-spec-item strong {
   display: block;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--ink);
   line-height: 1.4;
 }
@@ -4184,41 +4280,48 @@ h1,h2,h3,h4,h5,h6,.hero h1,.address h3,.faqs summary,.series-list strong {
 .portfolio-tabs {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 28px;
+  gap: 0 24px;
+  margin-top: 22px;
+  border-bottom: 1px solid var(--line);
 }
 
 .portfolio-tabs button {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 999px;
+  gap: 7px;
+  padding: 12px 2px;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
   font-size: 13px;
   font-weight: 500;
-  color: var(--ink);
+  color: var(--muted);
   cursor: pointer;
-  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+  margin-bottom: -1px;
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+
+.portfolio-tabs button:hover {
+  color: var(--ink);
 }
 
 .portfolio-tabs button small {
   font-size: 11px;
-  opacity: 0.7;
+  opacity: 0.65;
 }
 
 .portfolio-tabs button[aria-selected="true"] {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: #fff;
+  background: transparent;
+  border-bottom-color: var(--ink);
+  color: var(--ink);
 }
 
 .portfolio-photo-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
-  margin-top: 24px;
+  gap: 28px 22px;
+  margin-top: 28px;
 }
 
 @media (min-width: 640px) {
@@ -4236,10 +4339,10 @@ h1,h2,h3,h4,h5,h6,.hero h1,.address h3,.faqs summary,.series-list strong {
 .portfolio-photo-card {
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  overflow: hidden;
-  background: #fff;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+  background: transparent;
 }
 
 .portfolio-photo-trigger {
@@ -4248,8 +4351,8 @@ h1,h2,h3,h4,h5,h6,.hero h1,.address h3,.faqs summary,.series-list strong {
   width: 100%;
   aspect-ratio: 3 / 2;
   padding: 0;
-  border: 0;
-  background: #efefe9;
+  border: 1px solid var(--line);
+  background: var(--warm);
   cursor: zoom-in;
   overflow: hidden;
 }
@@ -4270,35 +4373,37 @@ h1,h2,h3,h4,h5,h6,.hero h1,.address h3,.faqs summary,.series-list strong {
   position: absolute;
   right: 10px;
   bottom: 10px;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   display: grid;
   place-items: center;
-  border-radius: 999px;
+  border-radius: 0;
   background: rgba(20, 22, 20, 0.72);
   color: #fff;
 }
 
 .portfolio-photo-meta {
-  padding: 14px 16px 16px;
+  padding: 12px 0 0;
 }
 
-.portfolio-photo-meta h3 {
+.portfolio-photo-meta h4 {
   margin: 0;
-  font-size: 15px;
+  font-size: 14px;
+  font-weight: 600;
   line-height: 1.35;
+  color: var(--ink);
 }
 
 .portfolio-photo-meta p {
-  margin: 6px 0 0;
+  margin: 4px 0 0;
   font-size: 13px;
-  line-height: 1.55;
+  line-height: 1.5;
   color: var(--muted);
 }
 
 .portfolio-videos-block {
-  margin-top: 44px;
-  padding-top: 32px;
+  margin-top: 48px;
+  padding-top: 34px;
   border-top: 1px solid var(--line);
 }
 
@@ -4314,12 +4419,13 @@ h1,h2,h3,h4,h5,h6,.hero h1,.address h3,.faqs summary,.series-list strong {
 .portfolio-videos-head h3 {
   margin: 6px 0 0;
   font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 500;
 }
 
 .portfolio-video-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 22px;
 }
 
 @media (min-width: 820px) {
@@ -4330,10 +4436,10 @@ h1,h2,h3,h4,h5,h6,.hero h1,.address h3,.faqs summary,.series-list strong {
 
 .portfolio-video-card {
   margin: 0;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  overflow: hidden;
-  background: #fff;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+  background: transparent;
 }
 
 .portfolio-video-card video {
@@ -4341,11 +4447,12 @@ h1,h2,h3,h4,h5,h6,.hero h1,.address h3,.faqs summary,.series-list strong {
   width: 100%;
   aspect-ratio: 16 / 9;
   background: #141614;
+  border: 1px solid var(--line);
   object-fit: cover;
 }
 
 .portfolio-video-card figcaption {
-  padding: 14px 16px;
+  padding: 12px 0 0;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -4353,6 +4460,7 @@ h1,h2,h3,h4,h5,h6,.hero h1,.address h3,.faqs summary,.series-list strong {
 
 .portfolio-video-card figcaption strong {
   font-size: 14px;
+  font-weight: 600;
   color: var(--ink);
 }
 

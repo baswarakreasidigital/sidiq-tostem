@@ -6,7 +6,9 @@ export const dynamic = "force-static";
 const BASE_URL = "https://tostemlitech.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const productEntries: MetadataRoute.Sitemap = PRODUCT_SERIES.map((series) => ({
+  const productEntries: MetadataRoute.Sitemap = PRODUCT_SERIES.filter(
+    (series) => series.landingHref !== "/pintu-utama-giesta"
+  ).map((series) => ({
     url: `${BASE_URL}${series.landingHref}`,
     lastModified: new Date(),
     changeFrequency: "monthly",
@@ -35,15 +37,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
-      url: `${BASE_URL}/jendela-kedap-suara`,
+      url: `${BASE_URL}/produk`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.9,
       images: [
+        `${BASE_URL}/images/series-grants.webp`,
         `${BASE_URL}/images/series-atis.webp`,
-        `${BASE_URL}/images/series-view.webp`,
         `${BASE_URL}/images/series-we70.webp`,
+        `${BASE_URL}/images/series-view.webp`,
+        `${BASE_URL}/images/series-in16.webp`,
+        `${BASE_URL}/images/series-giesta.webp`,
+        `${BASE_URL}/images/series-weplus.webp`,
+        `${BASE_URL}/images/series-we40.webp`,
       ],
+    },
+    {
+      url: `${BASE_URL}/rencanakan-kunjungan`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+      images: [`${BASE_URL}/images/alam-sutera-4.webp`],
     },
     ...productEntries,
     {
