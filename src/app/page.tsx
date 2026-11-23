@@ -12,6 +12,7 @@ import {
   Volume2,
   Wind,
 } from "lucide-react";
+import PortfolioShowcase from "@/components/PortfolioShowcase";
 import ProductExplorer from "@/components/ProductExplorer";
 import {
   Consultation,
@@ -204,6 +205,12 @@ export default function Home() {
               </p>
             </div>
             <ProductExplorer />
+          </div>
+        </section>
+
+        <section id="portfolio" className="section portfolio-section">
+          <div className="container">
+            <PortfolioShowcase />
           </div>
         </section>
 

@@ -82,6 +82,7 @@ export function Navigation() {
         <nav className="desktop-nav" aria-label="Navigasi utama">
           <a href="#studio">Studio</a>
           <a href="#produk">Produk</a>
+          <a href="#portfolio">Portfolio</a>
           <a href="#pengalaman">Pengalaman</a>
           <a href="#kunjungi">Lokasi</a>
         </nav>
@@ -109,6 +110,7 @@ export function Navigation() {
             [
               ["Studio", "#studio"],
               ["Produk", "#produk"],
+              ["Portfolio", "#portfolio"],
               ["Pengalaman studio", "#pengalaman"],
               ["Lokasi & kunjungan", "#kunjungi"],
               ["Pertanyaan umum", "#faq"],
