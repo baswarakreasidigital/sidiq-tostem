@@ -6,18 +6,24 @@ import { WE70_FEATURES, WE70_PERFORMANCE_ROWS } from "@/data/we70-catalog";
 import { STANDARD_COLORS, STANDARD_COLOR_HEX } from "@/data/products";
 
 export const metadata: Metadata = {
-  title:
-    "TOSTEM WE 70 Series | 26 Tipe Jendela, Pintu Lipat & Airflow Door — Alam Sutera",
+  title: "TOSTEM WE 70 Series | 26 Tipe Jendela & Pintu",
   description:
-    "Eksplorasi lengkap 26 tipe TOSTEM WE 70: Sliding Window, Casement, Louver, Sliding Door, Swing Door, Airflow Door, hingga Folding Door 4–8 panel. Standar kualitas JIS Jepang di TOSTEM Studio Alam Sutera (PT Litech Alglassindo).",
+    "Eksplorasi 26 tipe TOSTEM WE 70: Sliding, Casement, Louver, Airflow Door, hingga Folding Door berstandar JIS Jepang di TOSTEM Studio Alam Sutera.",
   alternates: {
     canonical: "https://tostemlitech.com/produk/we-70",
   },
   openGraph: {
-    title: "TOSTEM WE 70 Series | 26 Tipe Jendela & Pintu — Studio Alam Sutera",
+    title: "TOSTEM WE 70 Series | 26 Tipe Jendela & Pintu",
     description:
       "Pilihan terlengkap jendela dan pintu aluminium TOSTEM untuk hunian sehari-hari: 26 konfigurasi termasuk Folding Door & Airflow Door.",
     url: "https://tostemlitech.com/produk/we-70",
+    images: [{ url: "/images/series-we70.webp", width: 1200, height: 800 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TOSTEM WE 70 Series | 26 Tipe Jendela & Pintu",
+    description:
+      "26 tipe jendela dan pintu aluminium TOSTEM WE 70 berstandar JIS Jepang di Studio Alam Sutera.",
     images: [{ url: "/images/series-we70.webp", width: 1200, height: 800 }],
   },
 };

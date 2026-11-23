@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Consultation } from "@/components/StudioInteractive";
 import { STUDIO_IDENTITY } from "@/data/studio-info";
+import { buildBreadcrumbJsonLd } from "@/lib/seo";
 
 const PROCESS_STEPS = [
   {
@@ -27,25 +28,40 @@ const PROCESS_STEPS = [
 ] as const;
 
 export const metadata: Metadata = {
-  title:
-    "Rencanakan Kunjungan & Konsultasi | TOSTEM Studio Alam Sutera",
+  title: "Rencanakan Kunjungan | TOSTEM Studio Alam Sutera",
   description:
-    "Ajukan permintaan estimasi proyek, download katalog resmi, atau jadwalkan konsultasi langsung bersama tim TOSTEM Studio Alam Sutera (PT Litech Alglassindo).",
+    "Ajukan estimasi proyek, download katalog resmi, atau jadwalkan konsultasi langsung bersama tim TOSTEM Studio Alam Sutera (PT Litech Alglassindo).",
   alternates: {
     canonical: "https://tostemlitech.com/rencanakan-kunjungan",
   },
   openGraph: {
-    title: "Rencanakan Kunjungan & Konsultasi | TOSTEM Studio Alam Sutera",
+    title: "Rencanakan Kunjungan | TOSTEM Studio Alam Sutera",
     description:
       "Konsultasikan kebutuhan pintu dan jendela aluminium TOSTEM untuk hunian atau proyek Anda di Jabodetabek.",
     url: "https://tostemlitech.com/rencanakan-kunjungan",
     images: [{ url: "/images/alam-sutera-4.webp", width: 1200, height: 800 }],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Rencanakan Kunjungan | TOSTEM Studio Alam Sutera",
+    description:
+      "Konsultasikan kebutuhan pintu dan jendela aluminium TOSTEM untuk hunian atau proyek Anda di Jabodetabek.",
+    images: [{ url: "/images/alam-sutera-4.webp", width: 1200, height: 800 }],
+  },
 };
 
 export default function RencanakanKunjunganPage() {
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: "Beranda", path: "/" },
+    { name: "Rencanakan Kunjungan", path: "/rencanakan-kunjungan" },
+  ]);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <header className="site-header">
         <div className="container header-inner">
           <Link

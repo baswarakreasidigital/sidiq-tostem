@@ -8,6 +8,7 @@ import {
   GOOGLE_MAPS_STUDIO_URL,
 } from "@/data/portfolio";
 import { STUDIO_IDENTITY } from "@/data/studio-info";
+import { buildBreadcrumbJsonLd, buildProductJsonLd } from "@/lib/seo";
 
 interface ProductLandingShellProps {
   currentPath: string;
@@ -34,8 +35,36 @@ export default function ProductLandingShell({
     (p) => p.href !== currentPath
   );
 
+  const breadcrumbItems = currentPath.startsWith("/produk/")
+    ? [
+        { name: "Beranda", path: "/" },
+        { name: "Produk TOSTEM", path: "/produk" },
+        { name: title, path: currentPath },
+      ]
+    : [
+        { name: "Beranda", path: "/" },
+        { name: title, path: currentPath },
+      ];
+
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd(breadcrumbItems);
+  const productJsonLd = buildProductJsonLd({
+    name: title,
+    description: subtitle,
+    image: heroImage,
+    path: currentPath,
+    category: defaultInterest,
+  });
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
       <header className="site-header">
         <div className="container header-inner">
           <Link

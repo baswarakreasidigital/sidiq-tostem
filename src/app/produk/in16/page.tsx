@@ -7,19 +7,24 @@ import { STANDARD_COLORS, STANDARD_COLOR_HEX } from "@/data/products";
 const IN16_COLORS = STANDARD_COLORS.filter((c) => c !== "Natural Silver");
 
 export const metadata: Metadata = {
-  title:
-    "TOSTEM IN16 Interior Series | 11 Tipe Hanging Door, Swing Door & Partition — Alam Sutera",
+  title: "TOSTEM IN16 Series | Pintu & Partisi Interior 16 mm",
   description:
-    "Eksplorasi lengkap 11 tipe sistem pintu & partisi interior TOSTEM IN16: Hanging Door tanpa rel bawah (1–4 rel), Swing Door 16 mm, Fixed Divider, hingga Partition Door 2–6 panel. Hardware tersembunyi di TOSTEM Studio Alam Sutera.",
+    "Eksplorasi 11 tipe sistem interior TOSTEM IN16: Hanging Door tanpa rel bawah, Swing Door 16 mm, Fixed Divider, dan Partition Door di Alam Sutera.",
   alternates: {
     canonical: "https://tostemlitech.com/produk/in16",
   },
   openGraph: {
-    title:
-      "TOSTEM IN16 Interior Series | 11 Tipe Pintu & Partisi Interior — Studio Alam Sutera",
+    title: "TOSTEM IN16 Series | Pintu & Partisi Interior 16 mm",
     description:
       "Profil minimal 16 mm dengan concealed hardware dan flush glazing channel untuk transisi ruang interior yang halus dan terbuka.",
     url: "https://tostemlitech.com/produk/in16",
+    images: [{ url: "/images/series-in16.webp", width: 1200, height: 800 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TOSTEM IN16 Series | Pintu & Partisi Interior 16 mm",
+    description:
+      "11 tipe pintu & partisi interior TOSTEM IN16 dengan concealed hardware di Studio Alam Sutera.",
     images: [{ url: "/images/series-in16.webp", width: 1200, height: 800 }],
   },
 };

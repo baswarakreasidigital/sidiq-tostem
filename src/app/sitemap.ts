@@ -5,11 +5,14 @@ export const dynamic = "force-static";
 
 const BASE_URL = "https://tostemlitech.com";
 
+function toCanonicalUrl(path: string): string {
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  return `${BASE_URL}${normalized.endsWith("/") ? normalized : `${normalized}/`}`;
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const productEntries: MetadataRoute.Sitemap = PRODUCT_SERIES.filter(
-    (series) => series.landingHref !== "/pintu-utama-giesta"
-  ).map((series) => ({
-    url: `${BASE_URL}${series.landingHref}`,
+  const productEntries: MetadataRoute.Sitemap = PRODUCT_SERIES.map((series) => ({
+    url: toCanonicalUrl(series.landingHref),
     lastModified: new Date(),
     changeFrequency: "monthly",
     priority: 0.9,
@@ -18,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     {
-      url: `${BASE_URL}/`,
+      url: toCanonicalUrl("/"),
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
@@ -37,7 +40,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
-      url: `${BASE_URL}/produk`,
+      url: toCanonicalUrl("/produk"),
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.9,
@@ -53,15 +56,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
-      url: `${BASE_URL}/rencanakan-kunjungan`,
+      url: toCanonicalUrl("/rencanakan-kunjungan"),
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.9,
       images: [`${BASE_URL}/images/alam-sutera-4.webp`],
     },
+    {
+      url: toCanonicalUrl("/jendela-kedap-suara"),
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+      images: [
+        `${BASE_URL}/images/series-atis.webp`,
+        `${BASE_URL}/images/series-view.webp`,
+        `${BASE_URL}/images/series-we70.webp`,
+      ],
+    },
     ...productEntries,
     {
-      url: `${BASE_URL}/privacy-policy`,
+      url: toCanonicalUrl("/privacy-policy"),
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.3,

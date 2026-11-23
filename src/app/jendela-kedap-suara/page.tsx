@@ -8,18 +8,24 @@ const WINDOW_SERIES = PRODUCT_SERIES.filter((s) =>
 );
 
 export const metadata: Metadata = {
-  title:
-    "Jendela Aluminium Kedap Suara & Anti Bocor TOSTEM (ATIS, VIEW Plus, WE 70)",
+  title: "Jendela Aluminium Kedap Suara & Anti Bocor TOSTEM",
   description:
-    "Solusi jendela aluminium Jepang kedap suara dan anti rembes hujan tropis untuk hunian Jabodetabek. Bandingkan seri ATIS, VIEW Plus (kaca ganda 28 mm), dan WE 70 di TOSTEM Studio Alam Sutera.",
+    "Bandingkan jendela aluminium Jepang kedap suara & anti bocor TOSTEM: ATIS, VIEW Plus (kaca ganda 28 mm), dan WE 70 di Studio Alam Sutera.",
   alternates: {
     canonical: "https://tostemlitech.com/jendela-kedap-suara",
   },
   openGraph: {
-    title: "Jendela Aluminium Kedap Suara & Anti Bocor TOSTEM | Alam Sutera",
+    title: "Jendela Aluminium Kedap Suara & Anti Bocor TOSTEM",
     description:
       "Bandingkan spesifikasi teknis ATIS, VIEW Plus, dan WE 70. Authorized Dealer TOSTEM Indonesia — PT Litech Alglassindo.",
     url: "https://tostemlitech.com/jendela-kedap-suara",
+    images: [{ url: "/images/series-atis.webp", width: 1200, height: 800 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jendela Aluminium Kedap Suara & Anti Bocor TOSTEM",
+    description:
+      "Perbandingan jendela kedap suara & anti bocor hujan tropis TOSTEM ATIS, VIEW Plus, dan WE 70.",
     images: [{ url: "/images/series-atis.webp", width: 1200, height: 800 }],
   },
 };

@@ -9,19 +9,24 @@ import {
 import { STANDARD_COLORS, STANDARD_COLOR_HEX } from "@/data/products";
 
 export const metadata: Metadata = {
-  title:
-    "TOSTEM WE PLUS Series | 14 Tipe Jendela & Pintu High-Rise Standar ASTM — Alam Sutera",
+  title: "TOSTEM WE PLUS | Jendela & Pintu High-Rise ASTM",
   description:
-    "Eksplorasi lengkap 14 tipe TOSTEM WE PLUS untuk bangunan bertingkat: Fixed, Corner Fixed, Awning & Casement (Single/Multi Lock), Mixed Window, Sliding Door hingga tinggi 3 meter, serta Swing Door. Teruji ASTM E330 1.600 Pa di TOSTEM Studio Alam Sutera.",
+    "Eksplorasi 14 tipe TOSTEM WE PLUS untuk bangunan bertingkat: teruji ASTM 1.600 Pa, tinggi bukaan hingga 3 meter, di TOSTEM Studio Alam Sutera.",
   alternates: {
     canonical: "https://tostemlitech.com/produk/we-plus",
   },
   openGraph: {
-    title:
-      "TOSTEM WE PLUS Series | 14 Tipe Jendela & Pintu High-Rise — Studio Alam Sutera",
+    title: "TOSTEM WE PLUS | Jendela & Pintu High-Rise ASTM",
     description:
       "Sistem jendela dan pintu aluminium berstandar ASTM untuk bangunan bertingkat tinggi: ketahanan angin 1.600 Pa, kedap air 240 Pa, tinggi bukaan hingga 3 meter.",
     url: "https://tostemlitech.com/produk/we-plus",
+    images: [{ url: "/images/series-weplus.webp", width: 1400, height: 974 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TOSTEM WE PLUS | Jendela & Pintu High-Rise ASTM",
+    description:
+      "14 tipe jendela & pintu aluminium high-rise berstandar ASTM (1.600 Pa) di Studio Alam Sutera.",
     images: [{ url: "/images/series-weplus.webp", width: 1400, height: 974 }],
   },
 };

@@ -4,10 +4,26 @@ Options -Indexes
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # Serve directory index.html cleanly for static Next.js export
+  # 1. Redirect www to canonical non-www HTTPS host (301)
+  RewriteCond %{HTTP_HOST} ^www\.tostemlitech\.com$ [NC]
+  RewriteRule ^(.*)$ https://tostemlitech.com/$1 [R=301,L]
+
+  # 2. Redirect HTTP to HTTPS on canonical host (301, proxy-safe)
+  RewriteCond %{HTTP_HOST} ^tostemlitech\.com$ [NC]
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+  RewriteRule ^(.*)$ https://tostemlitech.com/$1 [R=301,L]
+
+  # 3. Redirect directory routes without trailing slash to trailing slash (301)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_URI} !/$
+  RewriteCond %{REQUEST_FILENAME}/index.html -f
+  RewriteRule ^(.+)$ /$1/ [R=301,L]
+
+  # 4. Serve directory index.html cleanly for static Next.js export
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME}/index.html -f
-  RewriteRule ^(.*)$ $1/index.html [L]
+  RewriteRule ^(.+)/$ $1/index.html [L]
 </IfModule>
 
 ErrorDocument 404 /404.html

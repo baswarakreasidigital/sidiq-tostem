@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -23,6 +24,16 @@ import {
 import StudioStory from "@/components/StudioStory";
 import { GOOGLE_MAPS_STUDIO_URL } from "@/data/portfolio";
 import { STUDIO_IDENTITY } from "@/data/studio-info";
+import { buildFaqJsonLd, buildLocalBusinessJsonLd } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  title: "TOSTEM Studio Alam Sutera | Pintu & Jendela Aluminium",
+  description:
+    "Authorized Dealer TOSTEM Indonesia (PT Litech Alglassindo). Temukan pintu & jendela aluminium bergaransi resmi di Studio Alam Sutera untuk area Jabodetabek.",
+  alternates: {
+    canonical: "https://tostemlitech.com/",
+  },
+};
 
 const EXPERIENCE_POINTS = [
   {
@@ -122,8 +133,19 @@ const FAQ_ITEMS = [
 ] as const;
 
 export default function Home() {
+  const localBusinessJsonLd = buildLocalBusinessJsonLd();
+  const faqJsonLd = buildFaqJsonLd(FAQ_ITEMS);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <a className="skip-link" href="#utama">
         Langsung ke konten
       </a>
@@ -426,6 +448,11 @@ export default function Home() {
         </div>
         <div className="container footer-bottom">
           <span>© TOSTEM Studio Alam Sutera · PT Litech Alglassindo</span>
+          <Link href="/produk">Semua Produk</Link>
+          <Link href="/rencanakan-kunjungan">Rencanakan Kunjungan</Link>
+          <Link href="/produk/grants">GRANTS Series</Link>
+          <Link href="/jendela-kedap-suara">Jendela Kedap Suara</Link>
+          <Link href="/pintu-utama-giesta">Pintu GIESTA</Link>
           <Link href={STUDIO_IDENTITY.privacyPath}>Kebijakan Privasi</Link>
           <a href="#utama">Kembali ke atas ↑</a>
         </div>

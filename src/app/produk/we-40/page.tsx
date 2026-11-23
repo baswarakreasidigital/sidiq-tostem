@@ -5,19 +5,24 @@ import { WE40_PERFORMANCE_ROWS, WE40_USP_CARDS } from "@/data/we40-catalog";
 import { STANDARD_COLORS, STANDARD_COLOR_HEX } from "@/data/products";
 
 export const metadata: Metadata = {
-  title:
-    "TOSTEM WE 40 Series | 5 Tipe Jendela Aluminium Pre-Engineered 41 mm — Alam Sutera",
+  title: "TOSTEM WE 40 Series | Jendela Pre-Engineered 41 mm",
   description:
-    "Eksplorasi lengkap 5 tipe jendela TOSTEM WE 40 (kusen 41 mm, kaca 5–6 mm, standar JIS 500 Pa): Single Sliding, Center Sliding FSSF, Casement, Awning, dan Fixed Window. Ideal untuk perumahan, cluster, dan renovasi di TOSTEM Studio Alam Sutera.",
+    "Eksplorasi 5 tipe jendela TOSTEM WE 40 berprofil ramping 41 mm dan standar JIS 500 Pa untuk perumahan, cluster, dan renovasi di Alam Sutera.",
   alternates: {
     canonical: "https://tostemlitech.com/produk/we-40",
   },
   openGraph: {
-    title:
-      "TOSTEM WE 40 Series | 5 Tipe Jendela Aluminium Pre-Engineered — Studio Alam Sutera",
+    title: "TOSTEM WE 40 Series | Jendela Pre-Engineered 41 mm",
     description:
-      "Kualitas legendaris TOSTEM untuk keseharian dan proyek residensial: profil ramping 41 mm, standar JIS 500 Pa, dan 5 konfigurasi jendela lengkap.",
+      "Kualitas TOSTEM untuk keseharian dan proyek residensial: profil ramping 41 mm, standar JIS 500 Pa, dan 5 konfigurasi jendela lengkap.",
     url: "https://tostemlitech.com/produk/we-40",
+    images: [{ url: "/images/series-we40.webp", width: 971, height: 1200 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TOSTEM WE 40 Series | Jendela Pre-Engineered 41 mm",
+    description:
+      "5 tipe jendela aluminium pre-engineered 41 mm standar JIS 500 Pa di Studio Alam Sutera.",
     images: [{ url: "/images/series-we40.webp", width: 971, height: 1200 }],
   },
 };

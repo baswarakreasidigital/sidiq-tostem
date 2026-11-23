@@ -6,19 +6,24 @@ import { VIEW_FEATURES, VIEW_PERFORMANCE_ROWS } from "@/data/view-catalog";
 import { STANDARD_COLORS, STANDARD_COLOR_HEX } from "@/data/products";
 
 export const metadata: Metadata = {
-  title:
-    "TOSTEM VIEW / VIEW Plus Series | 18 Tipe Jendela & Pintu Kaca Ganda — Alam Sutera",
+  title: "TOSTEM VIEW & VIEW Plus | Jendela Kaca Ganda 28 mm",
   description:
-    "Eksplorasi lengkap 18 tipe TOSTEM VIEW & VIEW Plus: Sliding Window, Casement, Awning, Fixed, Corner Fixed, Louver, Sliding Door hingga tinggi 3 meter, serta Swing Door. Pilihan kaca tunggal 5–8 mm (850 Pa) dan kaca ganda 28 mm (1.600 Pa) di TOSTEM Studio Alam Sutera.",
+    "Eksplorasi 18 tipe TOSTEM VIEW (850 Pa) & VIEW Plus kaca ganda 28 mm (1.600 Pa) untuk insulasi suara dan efisiensi energi di Studio Alam Sutera.",
   alternates: {
     canonical: "https://tostemlitech.com/produk/view-plus",
   },
   openGraph: {
-    title:
-      "TOSTEM VIEW / VIEW Plus Series | 18 Tipe Jendela & Pintu — Studio Alam Sutera",
+    title: "TOSTEM VIEW & VIEW Plus | Jendela Kaca Ganda 28 mm",
     description:
       "Pandangan terbuka dengan pilihan kaca tunggal (VIEW · 850 Pa) dan kaca ganda 28 mm untuk insulasi suara & efisiensi energi (VIEW Plus · 1.600 Pa).",
     url: "https://tostemlitech.com/produk/view-plus",
+    images: [{ url: "/images/series-view.webp", width: 1200, height: 800 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TOSTEM VIEW & VIEW Plus | Jendela Kaca Ganda 28 mm",
+    description:
+      "18 tipe jendela & pintu kaca tunggal (VIEW) dan kaca ganda 28 mm (VIEW Plus) di Studio Alam Sutera.",
     images: [{ url: "/images/series-view.webp", width: 1200, height: 800 }],
   },
 };

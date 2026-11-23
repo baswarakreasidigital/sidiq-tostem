@@ -4,26 +4,43 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import ProductExplorer from "@/components/ProductExplorer";
 import { STUDIO_IDENTITY } from "@/data/studio-info";
+import { buildBreadcrumbJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Pilihan Produk TOSTEM | Jendela & Pintu Aluminium — Studio Alam Sutera",
+  title: "Produk TOSTEM | Katalog Pintu & Jendela Aluminium",
   description:
-    "Eksplorasi seluruh seri jendela dan pintu aluminium TOSTEM: GRANTS, ATIS, WE 70, VIEW / VIEW Plus, WE PLUS, WE 40, pintu interior IN16, dan pintu utama GIESTA di TOSTEM Studio Alam Sutera.",
+    "Eksplorasi seluruh seri jendela dan pintu aluminium TOSTEM: GRANTS, ATIS, WE 70, VIEW Plus, WE PLUS, WE 40, IN16, dan GIESTA di Studio Alam Sutera.",
   alternates: {
     canonical: "https://tostemlitech.com/produk",
   },
   openGraph: {
-    title: "Pilihan Produk TOSTEM | TOSTEM Studio Alam Sutera",
+    title: "Produk TOSTEM | Katalog Pintu & Jendela Aluminium",
     description:
-      "Kenali detail setiap seri dan warna jendela serta pintu aluminium TOSTEM Indonesia.",
+      "Kenali detail setiap seri dan warna jendela serta pintu aluminium TOSTEM Indonesia di Studio Alam Sutera.",
     url: "https://tostemlitech.com/produk",
+    images: [{ url: "/images/KV_Grants-02.webp", width: 1200, height: 800 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Produk TOSTEM | Katalog Pintu & Jendela Aluminium",
+    description:
+      "Eksplorasi seluruh seri jendela dan pintu aluminium TOSTEM di Studio Alam Sutera.",
     images: [{ url: "/images/KV_Grants-02.webp", width: 1200, height: 800 }],
   },
 };
 
 export default function ProdukPage() {
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: "Beranda", path: "/" },
+    { name: "Produk TOSTEM", path: "/produk" },
+  ]);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <header className="site-header">
         <div className="container header-inner">
           <Link
@@ -57,7 +74,7 @@ export default function ProdukPage() {
             <div className="section-head">
               <div>
                 <p className="eyebrow">PILIHAN UNTUK SETIAP RUANG</p>
-                <h2>Buka lebih banyak kemungkinan.</h2>
+                <h1>Buka lebih banyak kemungkinan.</h1>
               </div>
               <p className="section-description">
                 Kenali detailnya. Temukan seri dan warna yang sesuai dengan

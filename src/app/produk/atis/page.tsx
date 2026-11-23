@@ -6,18 +6,24 @@ import { ATIS_FEATURES, ATIS_PERFORMANCE_ROWS } from "@/data/atis-catalog";
 import { STANDARD_COLORS, STANDARD_COLOR_HEX } from "@/data/products";
 
 export const metadata: Metadata = {
-  title:
-    "TOSTEM ATIS Series | Jendela & Pintu Aluminium Minimalis — Studio Alam Sutera",
+  title: "TOSTEM ATIS Series | Jendela & Pintu Minimalis",
   description:
-    "Eksplorasi lengkap 17 tipe TOSTEM ATIS & ATIS PLUS: Tilt & Slide, Slit Window, Awning, Casement, Sliding Door, dan Swing Door dengan concealed hardware, mullion 40 mm, serta Smart Invisible Insect Screen. Authorized Dealer PT Litech Alglassindo.",
+    "Eksplorasi 17 tipe TOSTEM ATIS & ATIS PLUS dengan concealed hardware, mullion 40 mm, dan Smart Invisible Insect Screen di TOSTEM Studio Alam Sutera.",
   alternates: {
     canonical: "https://tostemlitech.com/produk/atis",
   },
   openGraph: {
-    title: "TOSTEM ATIS Series | Jendela & Pintu Minimalis — Studio Alam Sutera",
+    title: "TOSTEM ATIS Series | Jendela & Pintu Minimalis",
     description:
       "17 tipe jendela & pintu aluminium TOSTEM ATIS (Low-Rise JIS & High-Rise ASTM 2.000 Pa) dengan concealed hardware dan Smart Insect Screen.",
     url: "https://tostemlitech.com/produk/atis",
+    images: [{ url: "/images/series-atis.webp", width: 1200, height: 800 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TOSTEM ATIS Series | Jendela & Pintu Minimalis",
+    description:
+      "17 tipe jendela & pintu aluminium TOSTEM ATIS dengan concealed hardware di Studio Alam Sutera.",
     images: [{ url: "/images/series-atis.webp", width: 1200, height: 800 }],
   },
 };

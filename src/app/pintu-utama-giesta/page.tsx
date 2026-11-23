@@ -8,19 +8,24 @@ import {
 } from "@/data/giesta-catalog";
 
 export const metadata: Metadata = {
-  title:
-    "Pintu Utama Aluminium GIESTA TOSTEM | 10 Model & Simulasi Warna Online — Alam Sutera",
+  title: "Pintu Utama GIESTA TOSTEM | 10 Model & Simulasi Warna",
   description:
-    "Eksplorasi lengkap 10 model Pintu Utama TOSTEM GIESTA (P01–P03, D01–D03, G01–G04) beserta simulasi warna motif kayu & metalik online, sistem 2 kunci 3 kait, dan performa JIS S-2 1.200 Pa di TOSTEM Studio Alam Sutera.",
+    "Eksplorasi 10 model pintu utama TOSTEM GIESTA dengan simulasi warna motif kayu & metalik, sistem 2 kunci 3 kait, dan uji JIS S-2 di Alam Sutera.",
   alternates: {
     canonical: "https://tostemlitech.com/pintu-utama-giesta",
   },
   openGraph: {
-    title:
-      "Pintu Utama Aluminium GIESTA TOSTEM | 10 Model & Simulasi Warna Online",
+    title: "Pintu Utama GIESTA TOSTEM | 10 Model & Simulasi Warna",
     description:
-      "Coba 10 model dan hingga 8 pilihan warna motif kayu & metalik pintu utama GIESTA secara langsung. Authorized Dealer TOSTEM Indonesia — PT Litech Alglassindo.",
+      "Coba 10 model dan pilihan warna motif kayu & metalik pintu utama GIESTA secara langsung. Authorized Dealer TOSTEM Indonesia — PT Litech Alglassindo.",
     url: "https://tostemlitech.com/pintu-utama-giesta",
+    images: [{ url: "/images/series-giesta.webp", width: 1200, height: 800 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pintu Utama GIESTA TOSTEM | 10 Model & Simulasi Warna",
+    description:
+      "Simulasi warna dan spesifikasi lengkap 10 model pintu utama TOSTEM GIESTA di Studio Alam Sutera.",
     images: [{ url: "/images/series-giesta.webp", width: 1200, height: 800 }],
   },
 };
