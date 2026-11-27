@@ -19,7 +19,7 @@ export function buildLocalBusinessJsonLd() {
     name: STUDIO_IDENTITY.studioName,
     legalName: STUDIO_IDENTITY.companyName,
     description:
-      "Authorized Dealer TOSTEM Indonesia (PT Litech Alglassindo) — Showroom dan konsultasi pintu serta jendela aluminium pre-engineered Jepang untuk area Jabodetabek.",
+      "Authorized Dealer TOSTEM Indonesia (PT Litech Alglassindo Jaya) — Showroom dan konsultasi pintu serta jendela aluminium pre-engineered Jepang untuk area Jabodetabek.",
     url: `${SITE_URL}/`,
     telephone: STUDIO_IDENTITY.phoneDisplay,
     image: `${SITE_URL}/images/alam-sutera-4.webp`,

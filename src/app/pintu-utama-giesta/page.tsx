@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Pintu Utama GIESTA TOSTEM | 10 Model & Simulasi Warna",
     description:
-      "Coba 10 model dan pilihan warna motif kayu & metalik pintu utama GIESTA secara langsung. Authorized Dealer TOSTEM Indonesia — PT Litech Alglassindo.",
+      "Coba 10 model dan pilihan warna motif kayu & metalik pintu utama GIESTA secara langsung. Authorized Dealer TOSTEM Indonesia — PT Litech Alglassindo Jaya.",
     url: "https://tostemlitech.com/pintu-utama-giesta",
     images: [{ url: "/images/series-giesta.webp", width: 1200, height: 800 }],
   },

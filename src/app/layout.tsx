@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://tostemlitech.com"),
   title: "TOSTEM Studio Alam Sutera | Pintu & Jendela Aluminium",
   description:
-    "Authorized Dealer TOSTEM Indonesia (PT Litech Alglassindo). Temukan pintu & jendela aluminium bergaransi resmi di Studio Alam Sutera untuk area Jabodetabek.",
+    "Authorized Dealer TOSTEM Indonesia (PT Litech Alglassindo Jaya). Temukan pintu & jendela aluminium bergaransi resmi di Studio Alam Sutera untuk area Jabodetabek.",
   robots: {
     index: true,
     follow: true,

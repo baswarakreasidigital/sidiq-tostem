@@ -201,7 +201,7 @@ export default function ProductLandingShell({
           </span>
         </div>
         <div className="container footer-bottom">
-          <span>© TOSTEM Studio Alam Sutera · PT Litech Alglassindo</span>
+          <span>© TOSTEM Studio Alam Sutera · PT Litech Alglassindo Jaya</span>
           <Link href={STUDIO_IDENTITY.privacyPath}>Kebijakan Privasi</Link>
           <a href="#top">Kembali ke atas ↑</a>
         </div>

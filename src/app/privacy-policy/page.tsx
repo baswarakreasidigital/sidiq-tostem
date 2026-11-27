@@ -7,14 +7,14 @@ import { STUDIO_IDENTITY } from "@/data/studio-info";
 export const metadata: Metadata = {
   title: "Kebijakan Privasi | TOSTEM Studio Alam Sutera",
   description:
-    "Kebijakan privasi pengelolaan data pengunjung, formulir estimasi proyek, dan penggunaan cookie di tostemlitech.com (PT Litech Alglassindo).",
+    "Kebijakan privasi pengelolaan data pengunjung, formulir estimasi proyek, dan penggunaan cookie di tostemlitech.com (PT Litech Alglassindo Jaya).",
   alternates: {
     canonical: "https://tostemlitech.com/privacy-policy",
   },
   openGraph: {
     title: "Kebijakan Privasi | TOSTEM Studio Alam Sutera",
     description:
-      "Kebijakan privasi pengelolaan data pengunjung dan formulir proyek di tostemlitech.com (PT Litech Alglassindo).",
+      "Kebijakan privasi pengelolaan data pengunjung dan formulir proyek di tostemlitech.com (PT Litech Alglassindo Jaya).",
     url: "https://tostemlitech.com/privacy-policy",
     images: [{ url: "/images/alam-sutera-4.webp", width: 1200, height: 800 }],
   },

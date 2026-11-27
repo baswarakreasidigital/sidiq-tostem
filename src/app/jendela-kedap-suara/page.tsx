@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Jendela Aluminium Kedap Suara & Anti Bocor TOSTEM",
     description:
-      "Bandingkan spesifikasi teknis ATIS, VIEW Plus, dan WE 70. Authorized Dealer TOSTEM Indonesia — PT Litech Alglassindo.",
+      "Bandingkan spesifikasi teknis ATIS, VIEW Plus, dan WE 70. Authorized Dealer TOSTEM Indonesia — PT Litech Alglassindo Jaya.",
     url: "https://tostemlitech.com/jendela-kedap-suara",
     images: [{ url: "/images/series-atis.webp", width: 1200, height: 800 }],
   },

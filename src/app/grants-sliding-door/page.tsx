@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "TOSTEM GRANTS Series | Pintu & Jendela Panorama",
     description:
-      "21 tipe jendela & pintu aluminium flagship TOSTEM GRANTS. Authorized Dealer TOSTEM Indonesia — PT Litech Alglassindo.",
+      "21 tipe jendela & pintu aluminium flagship TOSTEM GRANTS. Authorized Dealer TOSTEM Indonesia — PT Litech Alglassindo Jaya.",
     url: "https://tostemlitech.com/produk/grants",
     images: [{ url: "/images/series-grants.webp", width: 1200, height: 800 }],
   },

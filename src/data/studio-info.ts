@@ -1,6 +1,6 @@
 export const STUDIO_IDENTITY = {
-  dealerBadge: "Authorized Dealer TOSTEM Indonesia — PT Litech Alglassindo",
-  companyName: "PT Litech Alglassindo",
+  dealerBadge: "Authorized Dealer TOSTEM Indonesia — PT Litech Alglassindo Jaya",
+  companyName: "PT Litech Alglassindo Jaya",
   studioName: "TOSTEM Studio Alam Sutera",
   warranty: "Garansi Resmi TOSTEM Indonesia",
   warrantyDetail: "Garansi resmi produk & instalasi sesuai ketentuan TOSTEM",

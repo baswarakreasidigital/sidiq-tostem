@@ -32,7 +32,7 @@ const PROCESS_STEPS = [
 export const metadata: Metadata = {
   title: "Rencanakan Kunjungan | TOSTEM Studio Alam Sutera",
   description:
-    "Ajukan estimasi proyek, download katalog resmi, atau jadwalkan konsultasi langsung bersama tim TOSTEM Studio Alam Sutera (PT Litech Alglassindo).",
+    "Ajukan estimasi proyek, download katalog resmi, atau jadwalkan konsultasi langsung bersama tim TOSTEM Studio Alam Sutera (PT Litech Alglassindo Jaya).",
   alternates: {
     canonical: "https://tostemlitech.com/rencanakan-kunjungan",
   },
@@ -168,7 +168,7 @@ export default function RencanakanKunjunganPage() {
           </span>
         </div>
         <div className="container footer-bottom">
-          <span>© TOSTEM Studio Alam Sutera · PT Litech Alglassindo</span>
+          <span>© TOSTEM Studio Alam Sutera · PT Litech Alglassindo Jaya</span>
           <Link href={STUDIO_IDENTITY.privacyPath}>Kebijakan Privasi</Link>
           <a href="#utama">Kembali ke atas ↑</a>
         </div>

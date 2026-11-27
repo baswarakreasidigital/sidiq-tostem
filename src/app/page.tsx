@@ -31,7 +31,7 @@ import { buildFaqJsonLd, buildLocalBusinessJsonLd } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "TOSTEM Studio Alam Sutera | Pintu & Jendela Aluminium",
   description:
-    "Authorized Dealer TOSTEM Indonesia (PT Litech Alglassindo). Temukan pintu & jendela aluminium bergaransi resmi di Studio Alam Sutera untuk area Jabodetabek.",
+    "Authorized Dealer TOSTEM Indonesia (PT Litech Alglassindo Jaya). Temukan pintu & jendela aluminium bergaransi resmi di Studio Alam Sutera untuk area Jabodetabek.",
   alternates: {
     canonical: "https://tostemlitech.com/",
   },
@@ -484,7 +484,7 @@ export default function Home() {
           </span>
         </div>
         <div className="container footer-bottom">
-          <span>© TOSTEM Studio Alam Sutera · PT Litech Alglassindo</span>
+          <span>© TOSTEM Studio Alam Sutera · PT Litech Alglassindo Jaya</span>
           <Link href="/produk">Semua Produk</Link>
           <Link href="/rencanakan-kunjungan">Rencanakan Kunjungan</Link>
           <Link href="/produk/grants">GRANTS Series</Link>
